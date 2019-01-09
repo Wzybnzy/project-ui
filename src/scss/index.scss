@@ -1,0 +1,52 @@
+@import "common.scss";
+@import "_mixin.scss";
+
+
+.mui-inner-wrap{
+	@include box_flex;
+	@include direction(column);
+	header{
+		height: pxTorem(129px);
+		width: 100%;
+		background: yellow;
+	}
+	.header-top{
+		height: pxTorem(44px);
+		width: 100%;
+		@include box_flex;
+		@include justify(space-between);
+		@include align;
+		padding: 0 pxTorem(10px);
+		@include sizing;
+		.selectType{
+			display: inline-block;;
+			height: pxTorem(30px);
+			line-height: pxTorem(30px);
+			text-align: center;
+			width: pxTorem(50px);
+			border: 1px solid #000;
+			border-radius: pxTorem(10px);
+		}
+		.selectDate{
+			display: inline-block;;
+			height: pxTorem(30px);
+			line-height: pxTorem(30px);
+			text-align: center;
+			width: pxTorem(80px);
+			border: 1px solid #000;
+			border-radius: pxTorem(10px);
+		}
+	}
+	.header-center{
+		font-size: pxTorem(28px);
+	}
+	.header-bottom{
+		height: pxTorem(44px);
+		width: 100%;
+		line-height: pxTorem(44px);
+		@include box_flex;
+		@include justify(space-between);
+		@include align;
+		padding: 0 pxTorem(10px);
+	}
+}
