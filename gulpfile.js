@@ -17,7 +17,7 @@ gulp.task('watch',function(){
 gulp.task('server',function(){
 	return gulp.src('./src')
 	.pipe(server({
-		port:8686
+		port:8680
 	}));
 });
 

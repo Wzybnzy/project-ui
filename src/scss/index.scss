@@ -49,4 +49,58 @@
 		@include align;
 		padding: 0 pxTorem(10px);
 	}
+	
+	.mui-tab{
+		height: pxTorem(44px);
+		width: 100%;
+		@include box_flex;
+		@include justify(space-between);
+		@include align;
+		padding: 0 pxTorem(10px);
+		@include sizing;
+		>div{
+			height: pxTorem(30px);
+			width: pxTorem(100px);
+			border: 1px solid #000;
+			border-radius: pxTorem(10px);
+			@include box_flex;
+			overflow: hidden;
+			span{
+				@include flex;
+				line-height: pxTorem(30px);
+				text-align: center;
+			}
+			span.active{
+				background: yellow;
+			}
+		}
+	}
+	.mui-content{
+		@include flex;
+		width: 100%;
+		position:relative;
+		.mui-navigate-right{
+			@include box_flex;
+			>div:nth-child(2){
+				@include box_flex;
+				@include flex;
+				dl{
+					@include flex;
+					@include box_flex;
+					@include direction(column);
+					@include justify;
+					@include align;
+				}
+				dl.muiPay{
+					color: red;
+				}
+				dl.income{
+					color: green;
+				}
+				dl.balance{
+					color: #888888;;
+				}
+			}
+		}
+	}
 }

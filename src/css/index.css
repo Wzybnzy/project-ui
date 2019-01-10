@@ -224,3 +224,73 @@ html {
     -webkit-align-items: center;
     align-items: center;
     padding: 0 0.26667rem; }
+  .mui-inner-wrap .mui-tab {
+    height: 1.17333rem;
+    width: 100%;
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 0 0.26667rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box; }
+    .mui-inner-wrap .mui-tab > div {
+      height: 0.8rem;
+      width: 2.66667rem;
+      border: 1px solid #000;
+      border-radius: 0.26667rem;
+      display: flex;
+      /* NEW, Spec - Opera 12.1, Firefox 20+ */
+      display: -webkit-flex;
+      /* NEW - Chrome */
+      overflow: hidden; }
+      .mui-inner-wrap .mui-tab > div span {
+        -webkit-flex: 1 1 0%;
+        flex: 1 1 0%;
+        line-height: 0.8rem;
+        text-align: center; }
+      .mui-inner-wrap .mui-tab > div span.active {
+        background: yellow; }
+  .mui-inner-wrap .mui-content {
+    -webkit-flex: 1 1 0%;
+    flex: 1 1 0%;
+    width: 100%;
+    position: relative; }
+    .mui-inner-wrap .mui-content .mui-navigate-right {
+      display: flex;
+      /* NEW, Spec - Opera 12.1, Firefox 20+ */
+      display: -webkit-flex;
+      /* NEW - Chrome */ }
+      .mui-inner-wrap .mui-content .mui-navigate-right > div:nth-child(2) {
+        display: flex;
+        /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        display: -webkit-flex;
+        /* NEW - Chrome */
+        -webkit-flex: 1 1 0%;
+        flex: 1 1 0%; }
+        .mui-inner-wrap .mui-content .mui-navigate-right > div:nth-child(2) dl {
+          -webkit-flex: 1 1 0%;
+          flex: 1 1 0%;
+          display: flex;
+          /* NEW, Spec - Opera 12.1, Firefox 20+ */
+          display: -webkit-flex;
+          /* NEW - Chrome */
+          -webkit-flex-direction: column;
+          flex-direction: column;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-align-items: center;
+          align-items: center; }
+        .mui-inner-wrap .mui-content .mui-navigate-right > div:nth-child(2) dl.muiPay {
+          color: red; }
+        .mui-inner-wrap .mui-content .mui-navigate-right > div:nth-child(2) dl.income {
+          color: green; }
+        .mui-inner-wrap .mui-content .mui-navigate-right > div:nth-child(2) dl.balance {
+          color: #888888; }
