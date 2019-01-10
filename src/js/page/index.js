@@ -6,7 +6,11 @@ require(['./js/config.js'],function(){
 			nowYear = new Date().getFullYear(),
 			nowMonth = new Date().getMonth() + 1,
 			selectType = document.querySelector('#selectType'),
-			selectDate = document.querySelector('#selectDate');
+			selectDate = document.querySelector('#selectDate'),
+			muiBill = document.querySelector('.mui-bill'),
+			muiChart = document.querySelector('.mui-chart'),
+			billYear = document.querySelector('.mui-bill-year'),
+			billMonth = document.querySelector('.mui-bill-month');
 		init();
 		function init(){
 			picker = new mui.PopPicker();
@@ -31,6 +35,8 @@ require(['./js/config.js'],function(){
 						pickeM.style.display = 'none';
 						titleY.style.width = '100%';
 						pickeY.style.width = '100%';
+						billYear.style.display = 'block';
+						billMonth.style.display = 'none';
 					} else if(type == 'month'){ //月
 						nowMonth = nowMonth*1 < 10 ? '0' + nowMonth*1 : nowMonth*1;
 						selectDate.innerHTML = nowYear + '-'+ nowMonth;
@@ -38,6 +44,8 @@ require(['./js/config.js'],function(){
 						pickeM.style.display = 'block';
 						titleY.style.width = '50%';
 						pickeY.style.width = '50%';
+						billYear.style.display = 'none';
+						billMonth.style.display = 'block';
 					}
 					console.log(selectItems[0].text);//智子
 					console.log(selectItems[0].value);//zz 
@@ -56,6 +64,21 @@ require(['./js/config.js'],function(){
 					console.log(selectItems.m,'selectItems.m');//{text: "05",value: "05"} 
 				})
 			})
+			//点击tabs的时候
+			mui('#mui-tabs').on('tap','span',function(){
+				console.log(this.innerHTML);
+				var id = this.dataset.id;
+				this.classList.add('active');
+				if(id == 0){ //账单
+					muiChart.style.display = 'none';
+					muiBill.style.display = 'block';
+					this.nextElementSibling.classList.remove('active');
+				} else if(id == 1){ //图表
+					muiChart.style.display = 'block';
+					muiBill.style.display = 'none';
+					this.previousElementSibling.classList.remove('active');
+				}
+			});
 		}
 		
 	});

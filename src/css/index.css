@@ -5,12 +5,6 @@ span,
 applet,
 object,
 iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 p,
 blockquote,
 pre,
@@ -171,7 +165,8 @@ html {
   display: -webkit-flex;
   /* NEW - Chrome */
   -webkit-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  font-size: 0.42667rem; }
   .mui-inner-wrap header {
     height: 3.44rem;
     width: 100%;
@@ -294,3 +289,58 @@ html {
           color: green; }
         .mui-inner-wrap .mui-content .mui-navigate-right > div:nth-child(2) dl.balance {
           color: #888888; }
+    .mui-inner-wrap .mui-content .mui-collapse-pay .mui-collapse-type {
+      color: red;
+      font-size: 0.53333rem; }
+    .mui-inner-wrap .mui-content .mui-collapse-pay .mui-slide-list {
+      width: 100%;
+      display: flex;
+      /* NEW, Spec - Opera 12.1, Firefox 20+ */
+      display: -webkit-flex;
+      /* NEW - Chrome */
+      -webkit-justify-content: space-between;
+      justify-content: space-between; }
+      .mui-inner-wrap .mui-content .mui-collapse-pay .mui-slide-list > div:nth-child(2) {
+        -webkit-flex: 1 1 0%;
+        flex: 1 1 0%;
+        margin-left: 0.26667rem; }
+    .mui-inner-wrap .mui-content .mui-bill-month .mui-bill-month-title {
+      height: 1.17333rem;
+      width: 100%;
+      display: flex;
+      /* NEW, Spec - Opera 12.1, Firefox 20+ */
+      display: -webkit-flex;
+      /* NEW - Chrome */
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      -webkit-align-items: center;
+      align-items: center;
+      padding: 0 0.26667rem;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box; }
+    .mui-inner-wrap .mui-content .mui-bill-month .mui-bill-month-list {
+      display: flex;
+      /* NEW, Spec - Opera 12.1, Firefox 20+ */
+      display: -webkit-flex;
+      /* NEW - Chrome */
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      -webkit-align-items: center;
+      align-items: center;
+      padding: 0 0.26667rem;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box; }
+      .mui-inner-wrap .mui-content .mui-bill-month .mui-bill-month-list > div:nth-child(2) {
+        -webkit-flex: 1 1 0%;
+        flex: 1 1 0%; }
+    .mui-inner-wrap .mui-content .mui-bill-month .mui-table-view-cell-pay .mui-price {
+      color: red; }
+
+.mui-chart {
+  display: none; }

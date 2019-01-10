@@ -5,6 +5,7 @@
 .mui-inner-wrap{
 	@include box_flex;
 	@include direction(column);
+	font-size:pxTorem(16px);
 	header{
 		height: pxTorem(129px);
 		width: 100%;
@@ -102,5 +103,50 @@
 				}
 			}
 		}
+		.mui-collapse-pay{
+			.mui-collapse-type{
+				color: red;
+				font-size: pxTorem(20px);
+			}
+			.mui-slide-list{
+				width: 100%;
+				@include box_flex;
+				@include justify(space-between);
+				>div:nth-child(2){
+					@include flex;
+					margin-left: pxTorem(10px);
+				}
+			}
+		}
+		.mui-bill-month{
+			.mui-bill-month-title{
+				height: pxTorem(44px);
+				width: 100%;
+				@include box_flex;
+				@include justify(space-between);
+				@include align;
+				padding: 0 pxTorem(10px);
+				@include sizing;
+			}
+			.mui-bill-month-list{
+				@include box_flex;
+				@include justify(space-between);
+				@include align;
+				padding: 0 pxTorem(10px);
+				@include sizing;
+				>div:nth-child(2){
+					@include flex;
+				}
+			}
+			.mui-table-view-cell-pay {
+				.mui-price{
+					color: red;
+				}
+			}
+		}
+		
 	}
+}
+.mui-chart{
+	display: none;
 }
