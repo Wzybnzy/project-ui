@@ -150,3 +150,58 @@
 .mui-chart{
 	display: none;
 }
+
+/*侧边栏的样式*/
+.mui-off-canvas-left{
+	font-size: pxTorem(16px);
+	background: #fff;
+	.mui-scroll{
+		padding: 0 pxTorem(10px);
+		@include sizing;
+	}
+	.mui-aside-title{
+		// height: pxTorem(44px);
+		width: 100%;
+		// line-height: pxTorem(44px);
+		border-left: 2px solid yellow;
+		padding-left:pxTorem(10px);
+		@include sizing;
+		margin-top: pxTorem(10px);
+		font-weight: bold;
+		
+	}
+	.mui-aside-list{
+		@include box_flex;
+		@include flexWrap;
+		margin-bottom:pxTorem(10px);
+		li{
+			padding: pxTorem(3px) pxTorem(10px);
+			@include sizing;
+			border: 1px solid #000;
+			border-radius: pxTorem(10px);
+			margin: pxTorem(3px) pxTorem(10px);
+		}
+		li.asideActive{
+			border: 1px solid yellow;
+		}
+	}
+	.aside-btns{
+		width: 100%;
+		@include box_flex;
+		@include justify;
+		@include align;
+		span{
+			display: inline-block;
+			height: pxTorem(30px);
+			line-height: pxTorem(30px);
+			text-align: center;;
+			width: pxTorem(80px);
+			background: #CACACA;
+			margin: 0 pxTorem(5px);
+			border-radius: pxTorem(10px);
+		}
+		span.asideSure{
+			background: yellow;;
+		}
+	}
+}

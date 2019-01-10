@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html,
 body,
 div,
@@ -344,3 +345,67 @@ html {
 
 .mui-chart {
   display: none; }
+
+/*侧边栏的样式*/
+.mui-off-canvas-left {
+  font-size: 0.42667rem;
+  background: #fff; }
+  .mui-off-canvas-left .mui-scroll {
+    padding: 0 0.26667rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box; }
+  .mui-off-canvas-left .mui-aside-title {
+    width: 100%;
+    border-left: 2px solid yellow;
+    padding-left: 0.26667rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 0.26667rem;
+    font-weight: bold; }
+  .mui-off-canvas-left .mui-aside-list {
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 0.26667rem; }
+    .mui-off-canvas-left .mui-aside-list li {
+      padding: 0.08rem 0.26667rem;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      border: 1px solid #000;
+      border-radius: 0.26667rem;
+      margin: 0.08rem 0.26667rem; }
+    .mui-off-canvas-left .mui-aside-list li.asideActive {
+      border: 1px solid yellow; }
+  .mui-off-canvas-left .aside-btns {
+    width: 100%;
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center; }
+    .mui-off-canvas-left .aside-btns span {
+      display: inline-block;
+      height: 0.8rem;
+      line-height: 0.8rem;
+      text-align: center;
+      width: 2.13333rem;
+      background: #CACACA;
+      margin: 0 0.13333rem;
+      border-radius: 0.26667rem; }
+    .mui-off-canvas-left .aside-btns span.asideSure {
+      background: yellow; }

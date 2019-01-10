@@ -13,13 +13,40 @@
 </head>
 <body>
 	<!-- 侧滑导航根容器 -->
-<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+<div class="mui-off-canvas-wrap mui-draggable mui-slide-in" id="mui-off-canvas-wrap">
   <!-- 菜单容器 -->
   <aside class="mui-off-canvas-left">
     <div class="mui-scroll-wrapper">
       <div class="mui-scroll">
         <!-- 菜单具体展示内容 -->
-        侧边栏
+        <div class="mui-aside-title">
+			收支类型
+		</div>
+		<ul class="mui-aside-list" id="mui-aside-list">
+			<li class="" data-type="pay">全部支出</li>
+			<li data-type="income">全部收入</li>
+			<li data-type="balance">全部其他</li>
+		</ul>
+		<div class="mui-aside-title">
+			收支分类
+		</div>
+		<!-- 支出的分类 -->
+		<ul class="mui-aside-list" id="mui-aside-list-pay">
+			<li class="asideActive">餐饮</li>
+			<li>水果</li>
+			<li>购物</li>
+		</ul>
+		<!-- 收入的分类 -->
+		<ul class="mui-aside-list">
+			<li class="asideActive">薪资</li>
+			<li>意外所得</li>
+			<li>奖金</li>
+		</ul>
+		
+		<div class="aside-btns">
+			<span>重置</span>
+			<span class="asideSure">确定</span>
+		</div>
       </div>
     </div>
   </aside>
@@ -44,7 +71,7 @@
    </header>
    <!-- 账单tab -->
    <div class="mui-tab">
-	   <span class="mui-icon mui-icon-undo"></span>
+	   <span class="mui-icon mui-icon-undo" id="mui-aslide"></span>
 	   <div id="mui-tabs">
 		   <span class="active" data-id="0">账单</span>
 		   <span data-id="1">图表</span>
@@ -161,6 +188,24 @@
 		</div>
     </div>  
 	<div class="mui-off-canvas-backdrop"></div>
+	<nav class="mui-bar mui-bar-tab">
+		<a class="mui-tab-item mui-active" href="#tabbar">
+			<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-chat">
+			<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+			<span class="mui-tab-label">消息</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-contact">
+			<span class="mui-icon mui-icon-contact"></span>
+			<span class="mui-tab-label">通讯录</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-map">
+			<span class="mui-icon mui-icon-gear"></span>
+			<span class="mui-tab-label">设置</span>
+		</a>
+	</nav>
   </div>
   
 </div>

@@ -79,7 +79,46 @@ require(['./js/config.js'],function(){
 					this.previousElementSibling.classList.remove('active');
 				}
 			});
-		}
+			//点击显示侧边栏
+			document.querySelector('#mui-aslide').addEventListener('tap',function(){
+				mui('.mui-off-canvas-wrap').offCanvas().show()
+			})
+			//禁止手势滑动
+			var offCanvasInner =document.querySelector('#mui-off-canvas-wrap').querySelector('.mui-inner-wrap');
+				offCanvasInner.addEventListener('drag', function(event) {
+					event.stopPropagation();
+				});
+			}
+			
+			//点击全部支出
+			var paylist = Array.from(document.querySelectorAll('#mui-aside-list-pay li'));
+			mui('#mui-aside-list').on('tap','li',function(){
+				var type = this.dataset.type;
+				console.log(type);
+				this.classList.toggle('asideActive');	
+				if(this.classList.contains('asideActive')){
+					paylist.forEach(function(v,i){
+						v.classList.add('asideActive');
+					})
+				} else {
+					paylist.forEach(function(v,i){
+						v.classList.remove('asideActive');
+					})
+				}
+			});
+			
+			//点击所有的支出分类
+			mui('#mui-aside-list-pay').on('tap','li',function(){
+				this.classList.toggle('asideActive');
+				var len = paylist.length;
+				var lisLen = Array.from(document.querySelectorAll('#mui-aside-list-pay .asideActive')).length;
+				console.log(len,lisLen);
+				if(len == lisLen){
+					document.querySelector('[data-type="pay"]').classList.add('asideActive');
+				} else {
+					document.querySelector('[data-type="pay"]').classList.remove('asideActive');
+				}
+			});
 		
 	});
 });
