@@ -1,5 +1,5 @@
 require(['../js/config.js'],function(){
-	require(['mui','picker','poppicker'],function(mui){
+	require(['mui','format','picker','poppicker'],function(mui,format){
 		console.log('abbbill');
 		var nowYear = new Date().getFullYear();
 		var nowMonth = new Date().getMonth() +1;
@@ -7,6 +7,8 @@ require(['../js/config.js'],function(){
 		var billtime = document.querySelector('#billtime');
 		var dtPicker;
 		var money = document.querySelector('#money');
+		var type = 1;
+		var uid;
 		init();
 		function init(){
 			//获得slider插件对象
@@ -17,6 +19,58 @@ require(['../js/config.js'],function(){
 			//初始化日期
 			dtPicker = new mui.DtPicker({type:'date'}); 
 			billtime.innerHTML = nowMonth + '月'+ nowDate + '日';
+			render();
+		}
+		function render(){
+			//查询uid
+			var uid = localStorage.getItem('uid') || '';
+			if(!uid){ //没有uid
+				mui.ajax('/users/adduser',{
+					data:{name:'王坤'},
+					type:'post',
+					success:function(data){
+						if(data.code == 0){
+							uid = data.id;
+							localStorage.setItem('uid',uid);
+						}
+					}
+				})
+			} else {
+				uid = uid;
+			}
+			//查询分类的接口
+			mui.ajax('/classify/getClassify',{
+				data:{
+					type:type,
+					uid:uid
+				},
+				success:function(data){
+					// console.log(format(data.data,8));
+					renderList(data.data);
+				}
+			})
+		}
+		function renderList(data){
+			var data = format(data,8);
+			var html = '';
+			data.forEach(function(item){
+				html += `<div class="mui-slider-item">
+						<div>`;
+				item.forEach(function(v){
+					html += `<dl>
+								<dt>
+									<span class="${v.iname}"></span>
+								</dt>
+								<dd>${v.cname}</dd>
+							</dl>`;
+				});
+				html += `</div></div>`;
+			});
+			document.querySelector('#mui-slider-group').innerHTML = html;
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+			  // interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
+			});
 		}
 		addEvent();
 		function addEvent(){
