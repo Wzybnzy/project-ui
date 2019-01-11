@@ -17,7 +17,18 @@ gulp.task('watch',function(){
 gulp.task('server',function(){
 	return gulp.src('./src')
 	.pipe(server({
-		port:8680
+		port:8680,
+		proxies:[{
+			source:'/classify/iconlist',
+			target:'http://localhost:3000/classify/classify/iconlist'
+		},
+		{
+			source:'/users/adduser',
+			target:'http://localhost:3000/users/users/adduser'
+		},{
+			source:'/classify/addClassify',
+			target:'http://localhost:3000/classify/classify/addClassify'
+		}]
 	}));
 });
 

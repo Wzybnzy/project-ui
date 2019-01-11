@@ -219,10 +219,11 @@ html {
       display: -webkit-flex;
       /* NEW - Chrome */
       -webkit-flex-wrap: wrap;
-      flex-wrap: wrap; }
-      .classifywrap .mui-slider .mui-slider-group .mui-slider-item > div dl {
-        width: 25%;
-        height: 2.13333rem;
+      flex-wrap: wrap;
+      width: 100%; }
+      .classifywrap .mui-slider .mui-slider-group .mui-slider-item > div > div {
+        width: 20%;
+        height: 1.6rem;
         display: flex;
         /* NEW, Spec - Opera 12.1, Firefox 20+ */
         display: -webkit-flex;
@@ -230,18 +231,16 @@ html {
         -webkit-align-items: center;
         align-items: center;
         -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-flex-direction: column;
-        flex-direction: column; }
-        .classifywrap .mui-slider .mui-slider-group .mui-slider-item > div dl dt {
-          width: 1.06667rem;
+        justify-content: center; }
+        .classifywrap .mui-slider .mui-slider-group .mui-slider-item > div > div > span {
+          background: #000;
+          color: #fff;
           height: 1.06667rem;
-          background: #888888;
+          width: 1.06667rem;
+          text-align: center;
           border-radius: 100%;
           text-align: center;
           line-height: 1.06667rem; }
-        .classifywrap .mui-slider .mui-slider-group .mui-slider-item > div dl dd {
-          font-size: 0.37333rem; }
   .classifywrap .classify-btn {
     height: 1.33333rem;
     width: 100%;
