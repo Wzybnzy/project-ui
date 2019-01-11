@@ -1,0 +1,119 @@
+@import "common.scss";
+@import "_mixin.scss";
+
+.billwrap{
+	height: 100%;
+	width: 100%;
+	font-size:pxTorem(16px);
+	.header{
+		width:100%;
+		height: pxTorem(100px);
+		background:yellow;
+		padding:0 pxTorem(10px);
+		@include sizing;
+		.bill-header-title{
+			height: pxTorem(44px);
+			width: 100%;
+			@include box_flex;
+			
+			@include align;
+			>span{
+				width: pxTorem(50px);
+				
+			}
+			>div{
+				@include flex;
+				@include box_flex;
+				@include justify;
+				
+				>div{
+					height: pxTorem(30px);
+					width: pxTorem(100px);
+					border: 1px solid #000;
+					border-radius: pxTorem(10px);
+					@include box_flex;
+					overflow: hidden;
+					>span{
+						@include flex;
+						line-height: pxTorem(30px);
+						text-align: center;
+						display: inline-block;
+					}
+					>span.active{
+						background: #000;
+						color: yellow;
+					}
+				}
+			}
+		}
+		.bill-header-money{
+			height: pxTorem(40px);
+			width: 100%;
+			input{
+				background: transparent;
+				border: none;
+				border-bottom: 1px solid #000;
+				text-align: center;
+			}
+		}
+	}
+	.mui-slider{
+		.mui-slider-group{
+			.mui-slider-item{
+				>div{
+					@include box_flex;
+					@include flexWrap;
+					dl{
+						width: 25%;
+						height: pxTorem(80px);
+						@include box_flex;
+						@include align;
+						@include justify;
+						@include direction(column);
+						dt{
+							width: pxTorem(40px);
+							height: pxTorem(40px);
+							background: #888888;
+							border-radius: 100%;
+							text-align: center;
+							line-height: pxTorem(40px);
+						}
+						dd{
+							font-size: pxTorem(14px);
+						}
+					}
+				}
+				
+			}
+		}
+		
+	}
+	.billkeycord{
+		height: pxTorem(160px);
+		width: 100%;
+		@include box_flex;
+		
+		.billsure{
+			width: pxTorem(60px);
+			height: 100%;
+			line-height: pxTorem(160px);
+			text-align: center;
+			background: yellow;
+		}
+		.keycord{
+			@include flex;
+			height: 100%;
+			@include box_flex;
+			@include flexWrap;
+			li{
+				width: 33.3%;
+				height: pxTorem(40px);
+				background: #fff;
+				line-height: pxTorem(40px);
+				text-align: center;
+				border-bottom: 1px solid #000;
+				border-right: 1px solid #000;
+			}
+		}
+	}
+}

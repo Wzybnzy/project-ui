@@ -6,6 +6,21 @@
 	@include box_flex;
 	@include direction(column);
 	font-size:pxTorem(16px);
+	.box{
+		height: pxTorem(100px);
+		line-height: pxTorem(100px);
+		text-align: center;
+		width: pxTorem(100px);
+		border-radius: 100%;
+		background: yellow;
+		font-size: pxTorem(50px);
+		color: #fff;
+		position: absolute;
+		left: 50%;
+		bottom: pxTorem(45px);
+		margin-left: pxTorem(-50px);
+		z-index: 999;
+	}
 	header{
 		height: pxTorem(129px);
 		width: 100%;

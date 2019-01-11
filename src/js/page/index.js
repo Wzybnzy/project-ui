@@ -119,6 +119,9 @@ require(['./js/config.js'],function(){
 					document.querySelector('[data-type="pay"]').classList.remove('asideActive');
 				}
 			});
-		
+			//点击跳转账单页面
+			document.querySelector('#box').addEventListener('tap',function(){
+				location.href = './page/add_bill.html';
+			})
 	});
 });

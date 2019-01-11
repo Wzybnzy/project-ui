@@ -168,6 +168,20 @@ html {
   -webkit-flex-direction: column;
   flex-direction: column;
   font-size: 0.42667rem; }
+  .mui-inner-wrap .box {
+    height: 2.66667rem;
+    line-height: 2.66667rem;
+    text-align: center;
+    width: 2.66667rem;
+    border-radius: 100%;
+    background: yellow;
+    font-size: 1.33333rem;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    bottom: 1.2rem;
+    margin-left: -1.33333rem;
+    z-index: 999; }
   .mui-inner-wrap header {
     height: 3.44rem;
     width: 100%;

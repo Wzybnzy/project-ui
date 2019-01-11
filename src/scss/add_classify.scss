@@ -1,0 +1,94 @@
+@import "common.scss";
+@import "_mixin.scss";
+.classifywrap{
+	height: 100%;
+	width: 100%;
+	font-size:pxTorem(16px);
+	@include box_flex;
+	@include direction(column);
+	.classify-header-title{
+		height: pxTorem(44px);
+		width: 100%;
+		@include box_flex;
+		background:yellow;
+		@include align;
+		>span{
+			width: pxTorem(50px);
+			
+		}
+		>div{
+			@include flex;
+			text-align: center;
+			
+			
+		}
+	}
+	.add_classify{
+		height: pxTorem(44px);
+		width: 100%;
+		@include box_flex;
+		@include justify(space-between);
+		padding: 0 pxTorem(10px);
+		@include sizing;
+		@include align;
+		background:#fff;
+		
+		input{
+			background: transparent;
+			height: pxTorem(30px);
+			border:none;
+			text-align: right;
+			line-height: pxTorem(44px);
+			margin:0;
+		}
+	}
+	.mui-slider{
+		@include flex;
+		.mui-slider-group{
+			.mui-slider-item{
+				>div{
+					@include box_flex;
+					@include flexWrap;
+					dl{
+						width: 25%;
+						height: pxTorem(80px);
+						@include box_flex;
+						@include align;
+						@include justify;
+						@include direction(column);
+						dt{
+							width: pxTorem(40px);
+							height: pxTorem(40px);
+							background: #888888;
+							border-radius: 100%;
+							text-align: center;
+							line-height: pxTorem(40px);
+						}
+						dd{
+							font-size: pxTorem(14px);
+						}
+					}
+				}
+				
+			}
+		}
+		
+	}
+	.classify-btn{
+		height: pxTorem(50px);
+		width: 100%;
+		@include box_flex;
+		@include justify;
+		@include align;
+		>div{
+			width: 80%;
+			height: pxTorem(30px);
+			background: yellow;
+			border-radius: pxTorem(10px);
+			text-align: center;
+			line-height: pxTorem(30px);
+			color: #fff;
+		}
+	}
+}
+	
