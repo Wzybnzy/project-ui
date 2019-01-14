@@ -28,6 +28,9 @@ gulp.task('server',function(){
 		},{
 			source:'/classify/addClassify',
 			target:'http://localhost:3000/classify/classify/addClassify'
+		},{
+			source:'/classify/getClassify',
+			target:'http://localhost:3000/classify/classify/getClassify'
 		}]
 	}));
 });

@@ -1,5 +1,5 @@
 require(['../js/config.js'],function(){
-	require(['mui','getuid'],function(mui,getuid){
+	require(['mui','getuid','getParams'],function(mui,getuid,getParams){
 		var slidergroup = document.querySelector('#mui-slider-group');
 		var addClassify = document.querySelector('#addClassify');
 		init();
@@ -49,12 +49,14 @@ require(['../js/config.js'],function(){
 			mui('#mui-slider-group').on('tap','span',function(){
 				addClassify.className = this.className;
 			});
+			console.log(getParams());
 			//点击保存的时候
 			document.querySelector('#btnClassify').addEventListener('tap',function(){
 				var icon  = addClassify.className;
 				var name = Classifyname.value;
-				var type = 1;
+				var type = getParams().type;
 				var uid = getuid();
+				
 // 				var uid = localStorage.getItem('uid') || '';
 // 				if(!uid){ //没有uid
 // 					mui.ajax('/users/adduser',{

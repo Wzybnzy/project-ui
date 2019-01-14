@@ -131,6 +131,7 @@ require(['../js/config.js'],function(){
 				
 				if(this.children[1].innerHTML == '自定义'){
 					console.log('自定义');
+					location.href = 'add_classify.html?type='+type;
 				} else {
 					this.classList.add('active');
 				}
