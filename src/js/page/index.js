@@ -1,8 +1,8 @@
 require(['./js/config.js'],function(){
-	require(['mui','picker','poppicker'],function(mui){
+	require(['mui','getuid','picker','poppicker'],function(mui,getuid){
 		// console.log(mui,poppicker,picker);
 		mui.init();
-		var picker,dtPicker,type,
+		var picker,dtPicker,type,classifyArr=[],
 			nowYear = new Date().getFullYear(),
 			nowMonth = new Date().getMonth() + 1,
 			selectType = document.querySelector('#selectType'),
@@ -16,6 +16,47 @@ require(['./js/config.js'],function(){
 			picker = new mui.PopPicker();
 			picker.setData([{value:'year',text:'年'},{value:'month',text:'月'}]);
 			dtPicker = new mui.DtPicker({type:'month'}); 
+			loadClassify();
+			
+		}
+		function loadClassify(){
+			mui.ajax('/classify/getClassify',{
+				data:{
+					uid:getuid()
+				},
+				success:function(data){
+					console.log(data);
+					var payHtml = '',IcomeHtml = '';
+					if(data.code == 0){
+						data.data.forEach(function(item){
+							classifyArr.push(item.cname);
+							if(item.type == 1){ //支出
+								payHtml += `<li>${item.cname}</li>`;
+							} else {
+								IcomeHtml += `<li>${item.cname}</li>`;
+							}
+						});
+						document.querySelector('#mui-aside-list-pay').innerHTML = payHtml;
+						document.querySelector('#mui-aside-list-icome').innerHTML = IcomeHtml;
+						loadbill();
+					}
+				}
+			});
+		}
+		function loadbill(){
+			
+			var name = classifyArr.join(',');
+			console.log(name);
+			mui.ajax('/bill/getbill',{
+				data:{
+					uid:getuid(),
+					time:selectDate.innerHTML,
+					name:name
+				},
+				success:function(data){
+					console.log(data);
+				}
+			});
 		}
 		addEvent();
 		function addEvent(){

@@ -273,6 +273,8 @@ html {
     flex: 1 1 0%;
     width: 100%;
     position: relative; }
+    .mui-inner-wrap .mui-content .mui-bill-year {
+      display: none; }
     .mui-inner-wrap .mui-content .mui-navigate-right {
       display: flex;
       /* NEW, Spec - Opera 12.1, Firefox 20+ */

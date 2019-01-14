@@ -31,6 +31,9 @@ gulp.task('server',function(){
 		},{
 			source:'/classify/getClassify',
 			target:'http://localhost:3000/classify/classify/getClassify'
+		},{
+			source:'/bill/getBill',
+			target:'http://localhost:3000/bill/bill/getBill'
 		}]
 	}));
 });
