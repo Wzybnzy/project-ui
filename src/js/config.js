@@ -6,7 +6,8 @@ require.config({
 		'poppicker':'libs/mui.poppicker',
 		'format':'common/format',
 		'getuid':'common/getuid',
-		'getParams':'common/getParams'
+		'getParams':'common/getParams',
+		'moment':'libs/moment.min'
 	},
 	shim:{
 		'picker':{
