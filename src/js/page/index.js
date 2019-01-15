@@ -2,7 +2,7 @@ require(['./js/config.js'],function(){
 	require(['mui','getuid','picker','poppicker'],function(mui,getuid){
 		// console.log(mui,poppicker,picker);
 		mui.init();
-		var picker,dtPicker,type,classifyArr=[],
+		var picker,dtPicker,type,classifyArr=[],paylist,icomelist,
 			nowYear = new Date().getFullYear(),
 			nowMonth = new Date().getMonth() + 1,
 			selectType = document.querySelector('#selectType'),
@@ -38,6 +38,8 @@ require(['./js/config.js'],function(){
 						});
 						document.querySelector('#mui-aside-list-pay').innerHTML = payHtml;
 						document.querySelector('#mui-aside-list-icome').innerHTML = IcomeHtml;
+						paylist = Array.from(document.querySelectorAll('#mui-aside-list-pay li'));
+						icomelist = Array.from(document.querySelectorAll('#mui-aside-list-icome li'));
 						loadbill();
 					}
 				}
@@ -132,19 +134,34 @@ require(['./js/config.js'],function(){
 			}
 			
 			//点击全部支出
-			var paylist = Array.from(document.querySelectorAll('#mui-aside-list-pay li'));
+			
 			mui('#mui-aside-list').on('tap','li',function(){
 				var type = this.dataset.type;
+				var list;
 				console.log(type);
 				this.classList.toggle('asideActive');	
 				if(this.classList.contains('asideActive')){
-					paylist.forEach(function(v,i){
+					if(type == 'pay'){
+						list = paylist;
+						
+					} else {
+						list = icomelist;
+					}
+					list.forEach(function(v,i){
 						v.classList.add('asideActive');
 					})
+					
 				} else {
-					paylist.forEach(function(v,i){
+					if(type == 'pay'){
+						list = paylist;
+						
+					} else {
+						list = icomelist;
+					}
+					list.forEach(function(v,i){
 						v.classList.remove('asideActive');
 					})
+					
 				}
 			});
 			
@@ -158,6 +175,18 @@ require(['./js/config.js'],function(){
 					document.querySelector('[data-type="pay"]').classList.add('asideActive');
 				} else {
 					document.querySelector('[data-type="pay"]').classList.remove('asideActive');
+				}
+			});
+			//点击收入分类
+			mui('#mui-aside-list-icome').on('tap','li',function(){
+				this.classList.toggle('asideActive');
+				var len = icomelist.length;
+				var lisLen = Array.from(document.querySelectorAll('#mui-aside-list-icome .asideActive')).length;
+				console.log(len,lisLen);
+				if(len == lisLen){
+					document.querySelector('[data-type="income"]').classList.add('asideActive');
+				} else {
+					document.querySelector('[data-type="income"]').classList.remove('asideActive');
 				}
 			});
 			//点击跳转账单页面
