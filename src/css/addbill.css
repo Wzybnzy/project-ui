@@ -249,6 +249,8 @@ html {
         line-height: 1.06667rem; }
       .billwrap .mui-slider .mui-slider-group .mui-slider-item > div dl dd {
         font-size: 0.37333rem; }
+    .billwrap .mui-slider .mui-slider-group .mui-slider-item > div dl.active dt {
+      background: yellow; }
   .billwrap .billkeycord {
     height: 4.26667rem;
     width: 100%;
