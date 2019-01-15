@@ -309,6 +309,9 @@ html {
     .mui-inner-wrap .mui-content .mui-collapse-pay .mui-collapse-type {
       color: red;
       font-size: 0.53333rem; }
+    .mui-inner-wrap .mui-content .mui-collapse-pay .mui-collapse-active {
+      color: green;
+      font-size: 0.53333rem; }
     .mui-inner-wrap .mui-content .mui-collapse-pay .mui-slide-list {
       width: 100%;
       display: flex;
@@ -358,6 +361,8 @@ html {
         flex: 1 1 0%; }
     .mui-inner-wrap .mui-content .mui-bill-month .mui-table-view-cell-pay .mui-price {
       color: red; }
+    .mui-inner-wrap .mui-content .mui-bill-month .mui-table-view-cell-pay .mui-active {
+      color: green; }
 
 .mui-chart {
   display: none; }

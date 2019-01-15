@@ -34,6 +34,9 @@ gulp.task('server',function(){
 		},{
 			source:'/bill/getBill',
 			target:'http://localhost:3000/bill/bill/getBill'
+		},{
+			source:'/bill/addBill',
+			target:'http://localhost:3000/bill/bill/addBill'
 		}]
 	}));
 });

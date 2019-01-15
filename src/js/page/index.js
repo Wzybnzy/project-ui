@@ -2,7 +2,7 @@ require(['./js/config.js'],function(){
 	require(['mui','getuid','moment','picker','poppicker'],function(mui,getuid,moment){
 		// console.log(mui,poppicker,picker);
 		mui.init();
-		var picker,dtPicker,type,classifyArr=[],paylist,icomelist,
+		var picker,dtPicker,type,classifyArr=[],paylist,icomelist,totalPaymoney=0,totalincomemoney=0
 			nowYear = new Date().getFullYear(),
 			nowMonth = new Date().getMonth() + 1,
 			selectType = document.querySelector('#selectType'),
@@ -92,6 +92,53 @@ require(['./js/config.js'],function(){
 			for(var i in objYear){
 				yearArr.push(objYear[i]);
 			}
+			yearArr.forEach(function(item){
+				yearHtml += `<li class="mui-table-view-cell mui-collapse">
+								<a class="mui-navigate-right" href="#">
+									<div>
+										<span class="mui-icon mui-icon-email"></span>
+										<span>${item.time}月</span>
+									</div>
+									<div>
+										<dl class="muiPay">
+											<dt>支出</dt>
+											<dd>${item.totalPay}</dd>
+										</dl>
+										<dl class="income">
+											<dt>收入</dt>
+											<dd>${item.totalIncome}</dd>
+										</dl>
+										<dl class="balance">
+											<dt>结余</dt>
+											<dd>${item.totalIncome*1-item.totalPay}</dd>
+										</dl>
+									</div>
+								</a>`;
+								item.list.forEach(function(item1){
+									yearHtml += `<div class="mui-collapse-content mui-collapse-pay">
+									<ul id="" class="mui-table-view">
+										<li class="mui-table-view-cell">
+											<div class="mui-slider-right mui-disabled">
+												<a class="mui-btn mui-btn-red">删除</a>
+											</div>
+											<div class="mui-slider-handle">
+												<div class="mui-slide-list">
+													<span class="${item1.icon}"></span>
+													<div>
+														<div >${item1.name}</div>
+														<span>${moment(item1.time).utc().format('MM-DD')}</span>
+													</div>
+													<div class="${item1.type == 1? 'mui-collapse-type': 'mui-collapse-active'}">${item1.money}</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>`;
+								});
+								
+							yearHtml += `</li>`;
+			})
+			document.querySelector('#mui-table-view').innerHTML = yearHtml;
 			console.log(yearArr);
 		}
 		function renderMonth(data){
@@ -110,6 +157,9 @@ require(['./js/config.js'],function(){
 				//obj={01-11：{time:'01-11',total:0,list:[]},01-12:{}}
 				obj[time].list.push(item);
 				if(item.type == 1){ //支出
+					obj[time].totalMoney += item.money * 1;
+					totalPaymoney += item.money *1;
+				} else { //收入的
 					obj[time].totalMoney += item.money * 1;
 				}
 				console.log(obj);
@@ -132,14 +182,14 @@ require(['./js/config.js'],function(){
 							<ul id="" class="mui-table-view">`;
 							item.list.forEach(function(item1){
 								monthHtml += `<li class="mui-table-view-cell mui-table-view-cell-pay">
-									<div class="mui-slider-right mui-disabled">
+									<div class="mui-slider-right mui-disabled" data-id="${item1._id}">
 										<a class="mui-btn mui-btn-red">删除</a>
 									</div>
 									<div class="mui-slider-handle">
 										<div class="mui-bill-month-list">
 											<span class="${item1.icon}"></span>
 											<div>${item1.name}</div>
-											<div class="mui-price">${item1.money}</div>
+											<div class="${item1.type == 1? 'mui-price' :'mui-active'}">${item1.money}</div>
 										</div>
 									</div>
 								</li>`;
@@ -230,27 +280,14 @@ require(['./js/config.js'],function(){
 			
 			mui('#mui-aside-list').on('tap','li',function(){
 				var type = this.dataset.type;
-				var list;
+				var list = type == 'pay' ? paylist : icomelist;
 				console.log(type);
 				this.classList.toggle('asideActive');	
 				if(this.classList.contains('asideActive')){
-					if(type == 'pay'){
-						list = paylist;
-						
-					} else {
-						list = icomelist;
-					}
 					list.forEach(function(v,i){
 						v.classList.add('asideActive');
 					})
-					
 				} else {
-					if(type == 'pay'){
-						list = paylist;
-						
-					} else {
-						list = icomelist;
-					}
 					list.forEach(function(v,i){
 						v.classList.remove('asideActive');
 					})
@@ -286,5 +323,25 @@ require(['./js/config.js'],function(){
 			document.querySelector('#box').addEventListener('tap',function(){
 				location.href = './page/add_bill.html';
 			})
+			
+			//点击侧边栏确定
+			document.querySelector('#asideSure').addEventListener('tap',function(){
+				classifyArr = [];
+				//所有被选中的支出类型
+				var payActive = Array.from(document.querySelectorAll('#mui-aside-list-pay .asideActive'));
+				//所有被选中的收入类型
+				var incomeActive = Array.from(document.querySelectorAll('#mui-aside-list-icome .asideActive'));
+				payActive.forEach(function(item){
+					classifyArr.push(item.innerHTML);
+				});
+				incomeActive.forEach(function(item){
+						classifyArr.push(item.innerHTML);
+				});
+				mui('.mui-off-canvas-wrap').offCanvas().close();
+				console.log(classifyArr);
+				loadbill();
+			})	
+			
+			
 	});
 });

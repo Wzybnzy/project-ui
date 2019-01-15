@@ -162,6 +162,7 @@ require(['../js/config.js'],function(){
 						console.log(data);
 						if(data.code == 0){
 							console.log('添加成功');
+							window.location.href="../index.html";
 						}
 					}
 				});
